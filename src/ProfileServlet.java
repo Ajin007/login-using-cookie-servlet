@@ -16,6 +16,12 @@ public class ProfileServlet extends HttpServlet {
 	        request.getRequestDispatcher("link.html").include(request, response);
 	        
 	        
+	        //if you are goin to add session add this 
+//	        HttpSession session=request.getSession(false);  
+//	        if(session!=null){  
+//	        String name=(String)session.getAttribute("name");  
+//	          
+//	        out.print("Hello, "+name+" Welcome to Profile");
 	        Cookie ck[]=request.getCookies();
 	        if(ck!=null){
 	        	String name=ck[0].getValue();

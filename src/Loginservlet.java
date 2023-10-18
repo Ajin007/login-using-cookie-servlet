@@ -6,6 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Loginservlet extends HttpServlet  {
 	
@@ -22,6 +23,12 @@ public class Loginservlet extends HttpServlet  {
 		if(password.equals("admin")){
 			out.print("you have succesfully logged in");
 			out.print("<br>welcome"+name);
+			
+			//this is to add the sessions 
+			// either we shall use the cookie tag or else the session tag for the same , cooke tag is available in the below provided line
+			// remove the session if need ot work on the session
+			HttpSession session=Req.getSession();
+			session.setAttribute("name", name);
 			
 			//this is to add the cookie for continuos accessing
 			Cookie cw=new Cookie("name", name);
